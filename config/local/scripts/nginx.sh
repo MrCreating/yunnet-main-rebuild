@@ -8,7 +8,7 @@ if [[ "$UNT_PRODUCTION" == "1" ]]; then
 export PRODUCTION_NGINX_HTTPS_CODE="
 if ($dollar$https != 'on') {
 	return 301 https://$dollar$host$dollar$uri;
-} 
+}
 
 listen 443 ssl;
 ssl_certificate /home/unt/config/local/config/nginx/fullchain.pem;

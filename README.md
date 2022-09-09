@@ -1,2 +1,7 @@
 # yunnet-main-rebuild
-This is the rebuild yunNet code with new untEngine.
+
+Схема проекта
+- `api` - API (https://api.yunnet.ru)
+- `dev` - Для разработчиков (https://dev.yunnet.ru)
+- `doc` - ВЛОЖЕНИЯ (https://d-X.yunnet.ru)
+

@@ -18,7 +18,7 @@ return [
         var_dump($error);
     },
     'fatal' => function ($err) {
-        var_dump($err);
+        return $err;
     }
 ];
 ?>

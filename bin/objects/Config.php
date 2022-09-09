@@ -17,6 +17,24 @@ class Config extends BaseObject
 
     private $dbData;
 
+    /**
+     * @var callable
+     */
+    private $main_domain_router;
+
+    /**
+     * @var array
+     */
+    private array $domains_list;
+    /**
+     * @var mixed
+     */
+    private $project_domain;
+    /**
+     * @var mixed
+     */
+    private $project_dev_domain;
+
     public function __construct(?array $config = NULL)
     {
         parent::__construct();
@@ -25,6 +43,21 @@ class Config extends BaseObject
             $config = require_once  __DIR__ . '/../config/main.php';
 
         $this->config = $config;
+    }
+
+    public function getProjectDomain (bool $dev = false): string
+    {
+        return $dev ? $this->project_dev_domain : $this->project_domain;
+    }
+
+    public function getMainRouter (): callable
+    {
+        return $this->main_domain_router;
+    }
+
+    public function getDomainsList (): array
+    {
+        return $this->domains_list;
     }
 
     /**
@@ -94,6 +127,21 @@ class Config extends BaseObject
                     call_user_func($this->config['errors']['fatal'], new FatalException($errstr, $errfile, $errno, $errline));
                 }
             });
+
+        if (!isset($this->config['router']) || !is_callable($this->config['router']))
+            throw new InvalidConfigException("The domain router must be provided and it must be a function.");
+
+        $domains_list = $this->config['domains'];
+        $this->domains_list = $domains_list;
+
+        $main_domain_router = $this->config['router'];
+        $this->main_domain_router = $main_domain_router;
+
+        $project_domain     = $this->config['domain'];
+        $project_dev_domain = $this->config['dev_domain'];
+
+        $this->project_domain     = $project_domain;
+        $this->project_dev_domain = $project_dev_domain;
 
         $this->emitEvent(self::EVENT_AFTER_APPLY, $this->config);
 

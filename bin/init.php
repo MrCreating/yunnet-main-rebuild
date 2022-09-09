@@ -1,5 +1,6 @@
 <?php
 
+use unt\exceptions\InvalidConfigException;
 use unt\objects\Config;
 
 /**
@@ -24,12 +25,23 @@ class UntEngine
         });
     }
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function run (\unt\objects\Config $config = NULL): void
     {
         $config = ($config ? $config : new Config());
         $this->config = $config;
 
-        $this->config->apply();
+        $result = $this->config->apply();
+        if ($result) {
+            $requested_domain = basename(explode('.', strtolower($_SERVER['HTTP_HOST']))[0]);
+
+            $domains_list = $this->config->getDomainsList();
+            $domain = in_array($requested_domain, $domains_list) ? $requested_domain : '';
+
+            call_user_func($this->config->getMainRouter(), $domain);
+        }
     }
 
     public function getConfig (): Config
