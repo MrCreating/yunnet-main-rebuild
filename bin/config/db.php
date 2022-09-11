@@ -5,9 +5,9 @@
  */
 
 return [
-    'host'     => 'localhost',
+    'host'     => 'host.docker.internal',
     'port'     => 3306,
     'user'     => 'root',
-    'password' => 'root'
+    'password' => 'pC2022_DiE'
 ];
 ?>

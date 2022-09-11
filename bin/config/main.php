@@ -3,8 +3,8 @@ return [
     'db'     => require_once __DIR__ . '/db.php',
     'errors' => require_once __DIR__ . '/errors.php',
 
-    'domain'     => 'yunnet.ru',
-    'dev_domain' => 'localhost',
+    'domain'        => 'yunnet.ru',
+    'dev_domain'    => 'localhost',
 
     // domains list
     'domains' => ['api', 'dev', 'd-1', 'themes'],

@@ -95,6 +95,26 @@ class Config extends BaseObject
                 $this->user     = $config['user'];
                 $this->password = $config['password'];
             }
+
+            public function getHost (): string
+            {
+                return $this->host;
+            }
+
+            public function getPort (): int
+            {
+                return $this->port;
+            }
+
+            public function getUser (): string
+            {
+                return $this->user;
+            }
+
+            public function getPassword (): string
+            {
+                return $this->password;
+            }
         };
 
         if (!isset($this->config['errors']))

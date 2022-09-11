@@ -1,6 +1,7 @@
 <?php
 
 use unt\exceptions\InvalidConfigException;
+use unt\objects\BaseActivity;
 use unt\objects\Config;
 
 /**
