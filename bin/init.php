@@ -14,6 +14,9 @@ class UntEngine
 {
     private ?Config $config = NULL;
 
+    private array $requestData = [];
+    private string $requestPage = '';
+
     /**
      * @throws Exception
      */
@@ -25,6 +28,18 @@ class UntEngine
             require_once __DIR__ . '/' . implode('/', $parts) . '.php';
         });
     }
+
+    //////////////////////////////////////////
+    public function getRequest (): array
+    {
+        return $this->requestData;
+    }
+
+    public function getRequestPage (): string
+    {
+        return $this->requestPage;
+    }
+    ///////////////////////////////////////////
 
     /**
      * @throws InvalidConfigException
@@ -40,6 +55,19 @@ class UntEngine
 
             $domains_list = $this->config->getDomainsList();
             $domain = in_array($requested_domain, $domains_list) ? $requested_domain : '';
+
+            $request_data = explode('?', $_SERVER['REQUEST_URI']);
+
+            $this->requestPage = $request_data[0];
+
+            $request_content = explode('&', $request_data[1]);
+            $request = [];
+            foreach ($request_content as $data)
+            {
+                $item = explode('=', $data, 2);
+                $request[$item[0]] = $item[1];
+            }
+            $this->requestData = $request;
 
             call_user_func($this->config->getMainRouter(), $domain);
         }
