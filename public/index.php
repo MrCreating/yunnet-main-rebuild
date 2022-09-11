@@ -2,9 +2,11 @@
 
 require_once __DIR__ . '/../bin/init.php';
 
-use unt\objects\Config;
-
 $unt = UntEngine::get();
-$unt->run();
+try {
+    $unt->run();
+} catch (\unt\exceptions\InvalidConfigException $e) {
+    echo '<b>Failed to init platform. Sorry...</b>';
+}
 
 ?>
