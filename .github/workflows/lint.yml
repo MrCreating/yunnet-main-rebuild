@@ -21,6 +21,7 @@ jobs:
         run: |
           echo Current line is $GITHUB_SHA 
           mkdir $GITHUB_SHA
-          ls
           cd $GITHUB_SHA 
           echo Go to $(pwd)
+          echo Init project ...
+          git clone https://github.com/${{github.repository}}
