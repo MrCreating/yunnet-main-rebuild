@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          lfs: true
       - name: Fetching differences
         run: |
           echo Current line is $GITHUB_SHA
           echo Current dir is $(pwd)
+          git diff $
