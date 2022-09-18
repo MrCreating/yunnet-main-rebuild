@@ -29,4 +29,3 @@ jobs:
                 && set PWD={pwd} 
                 && echo Go to $PWD - OK! 
                 && echo All operations OK! Clean up.
-                && cd .. 
