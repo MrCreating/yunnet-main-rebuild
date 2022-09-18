@@ -1,0 +1,9 @@
+name: lint
+
+# push all commits to all branches
+on:
+  push
+
+# lint uses only test server
+env:
+  UNT_PRODUCTION: 0
