@@ -14,12 +14,12 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Init PHP
-        run: 
+        run: |
           sudo -i apt-get update
           cd ~/commits/
           echo PHP init setup succeded.
       - name: Download github project
-        run: 
+        run: |
           echo Current line is $GITHUB_SHA 
           mkdir $GITHUB_SHA 
           cd $GITHUB_SHA 
