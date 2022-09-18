@@ -21,6 +21,7 @@ jobs:
       - name: Download github project
         run: |
           echo Current line is $GITHUB_SHA 
-          mkdir $GITHUB_SHA 
+          mkdir $GITHUB_SHA
+          ls
           cd $GITHUB_SHA 
           echo Go to $(pwd)
