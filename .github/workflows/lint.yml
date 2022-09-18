@@ -20,4 +20,4 @@ jobs:
       - name: Fetching differences
         run: |
           echo Current line is $GITHUB_SHA
-          git rev-parse --verify HEA
+          echo Current dir is $pwd
