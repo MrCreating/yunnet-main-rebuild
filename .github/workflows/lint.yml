@@ -18,7 +18,7 @@ jobs:
       git_url: ${{ github.server_url }}/${{ github.repository }}
     steps:
       - name: Init PHP
-        run: sudo -i apt-get update &&
+        run: sudo -i apt-get update
             && cd ../commits
             echo PHP init setup succeded!
       - name: Download github differences
