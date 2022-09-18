@@ -19,7 +19,8 @@ jobs:
             && echo PHP init setup succeded.
       - name: Download github project
         run: |
-                mkdir $GITHUB_REF_NAME 
+                echo Repo is $GITHUB_REF_NAME
+                && mkdir $GITHUB_REF_NAME 
                 && cd $GITHUB_REF_NAME  
                 && set PWD={pwd} 
                 && echo Go to $PWD - OK! 
