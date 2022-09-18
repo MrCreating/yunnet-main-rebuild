@@ -19,7 +19,5 @@ jobs:
             && echo PHP init setup succeded.
       - name: Download github project
         run: |
-                echo Current line is $GITHUB_SHA 
-                && set PWD={pwd} 
-                && echo Go to $PWD - OK! 
-                && echo All operations OK! Clean up.
+                echo Current line is $GITHUB_SHA
+                
