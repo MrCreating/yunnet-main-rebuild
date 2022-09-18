@@ -18,7 +18,11 @@ jobs:
         with:
           fetch-depth: 0
       - name: Fetching differences
+        uses: technote-space/get-diff-action@v6
+        with:
+          PATTERNS: |
+            *.php|*.html
+      - name: Validating files
         run: |
-          echo Current line is $GITHUB_SHA
-          echo Current dir is $(pwd)
-          git diff $
+          echo Listing files diff.
+          echo ${{ env.GIT_DIFF }}
