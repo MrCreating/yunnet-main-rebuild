@@ -7,3 +7,11 @@ on:
 # lint uses only test server
 env:
   UNT_PRODUCTION: 0
+
+jobs:
+  lint:
+    name: Project lint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Init PHP
+      - run: apt-get update && apt-get install php7.4 -y
