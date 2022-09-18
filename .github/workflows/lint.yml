@@ -20,4 +20,4 @@ jobs:
       - name: Fetching differences
         run: |
           echo Current line is $GITHUB_SHA
-          echo Current dir is $pwd
+          echo Current dir is $(pwd)
