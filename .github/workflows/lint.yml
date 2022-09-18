@@ -17,12 +17,16 @@ jobs:
         run: sudo -i apt-get update
             && cd ~/commits/}
             && echo PHP init setup succeded!
-      - name: Setup variables
-        run: |
-                echo "git_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_BRANCH &&
-                echo "git_hash=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_HASH &&
-                echo "Current branch is ${{ GITHUB_BRANCH }}" &&
-                echo "Current hash is ${{ GITHUB_HASH }}"
+      - name: Get Branch
+        id: branch
+        run: echo "git_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_BRANCH
+      - name: Check Branch
+        run: echo "${{ env.branch }}"
+      - name: Get Hash
+        id: hash
+        run: echo "git_hash=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_HASH
+      - name: Check Hash
+        run: echo "${{ env.hash }}"
       - name: Download github differences
         run: |
                 mkdir "$GIT_HASH" 
