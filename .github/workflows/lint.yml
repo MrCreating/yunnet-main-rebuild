@@ -20,10 +20,10 @@ jobs:
       - name: Init PHP
         run: sudo -i apt-get update
             && cd ~/commits/
-            echo PHP init setup succeded!
+            && echo PHP init setup succeded!
       - name: Download github differences
         run: |
-          mkdir "$GIT_HASH" 
+                mkdir "$GIT_HASH" 
                 && mkdir "$GIT_HASH"
                 && cd $GIT_HASH
                 && set PWD={pwd} 
