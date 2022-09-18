@@ -14,4 +14,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Init PHP
-      - run: apt-get update && apt-get install php7.4 -y
+      - uses: lint@1.0.0
+      - run: |
+          apt-get update && apt-get install php7.4 -y
