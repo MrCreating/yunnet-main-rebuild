@@ -12,7 +12,21 @@ jobs:
   lint:
     name: Project lint
     runs-on: self-hosted
+    env:
+      git_hash: $(git rev-parse --short "$GITHUB_SHA")
+      git_branch: ${GITHUB_REF#refs/heads/}
+      git_url: ${{ github.server_url }}/${{ github.repository }}
     steps:
       - name: Init PHP
         run: sudo -i apt-get update &&
-            echo Success!
+            && cd ../commits
+            echo PHP init setup succeded!
+      - name: Download github differences
+        run: |
+          mkdir "$GIT_HASH" 
+                && mkdir "$GIT_HASH"
+                && cd $GIT_HASH
+                && set PWD={pwd} 
+                && echo Go to $PWD - OK! 
+                && echo All operations OK! Clean up.
+                && cd .. 
