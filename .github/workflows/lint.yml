@@ -19,5 +19,4 @@ jobs:
           php-version: '7.4'
           extensions: pdo, memcached
           run: |
-            apt-get update
             echo 'Success!'
