@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Init PHP
         run: sudo -i apt-get update
-            && cd ../commits
+            && cd ~/commits/
             echo PHP init setup succeded!
       - name: Download github differences
         run: |
