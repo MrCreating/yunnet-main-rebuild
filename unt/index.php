@@ -1,5 +1,7 @@
 <?php
 
+use unt\exceptions\FileNotFoundException;
+
 use unt\objects\Context;
 use unt\objects\HeadView;
 use unt\objects\View;
@@ -23,7 +25,7 @@ try {
     }
 
     $head->addView($view);
-} catch (\unt\exceptions\FileNotFoundException $e) {
+} catch (FileNotFoundException $e) {
     echo '<b>Failed to load the platform! Sorry...<b>';
 }
 
