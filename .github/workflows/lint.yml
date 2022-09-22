@@ -21,7 +21,7 @@ jobs:
         uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
-            *.php|*.html
+            *.php|*.html|*.yml
       - name: Validating files
         run: |
           echo Listing files diff.
