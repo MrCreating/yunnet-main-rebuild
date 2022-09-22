@@ -20,6 +20,7 @@ jobs:
       - name: Fetching differences
         uses: technote-space/get-diff-action@v6
         with:
+          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
           PATTERNS: |
             *.php|*.html|*.yml
       - name: Validating files
