@@ -15,5 +15,5 @@ jobs:
     steps:
       - name: Init project
         uses: actions/checkout@v1
-      - name: Work PHP lint
-        uses: michaelw90/PHP-Lint@master
+      #- name: Work PHP lint
+      #  uses: michaelw90/PHP-Lint@master
