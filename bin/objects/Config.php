@@ -45,8 +45,10 @@ class Config extends BaseObject
         $this->config = $config;
     }
 
-    public function getProjectDomain (bool $dev = false): string
+    public function getProjectDomain (): string
     {
+        $dev = !((int) getenv('UNT_PRODUCTION'));
+
         return $dev ? $this->project_dev_domain : $this->project_domain;
     }
 

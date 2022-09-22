@@ -6,14 +6,13 @@ use unt\exceptions\FileNotFoundException;
 
 class View extends BaseObject
 {
-    protected string $content;
-
-    protected array $data = [];
+    protected array  $data = [];
+    protected string $path = '';
 
     /**
      * @throws FileNotFoundException
      */
-    public function __construct(string $path)
+    public function __construct(string $path, array $data = [])
     {
         parent::__construct();
         $this->protect();
@@ -21,12 +20,30 @@ class View extends BaseObject
         if (!file_exists($path))
             throw new FileNotFoundException("View not found.");
 
-        $content = file_get_contents($path);
-        $this->content = $content;
+        $this->path = $path;
+        $this->data = $data;
     }
 
-    public function getContent (): string
+    public function getPath (): string
     {
-        return $this->content;
+        return $this->path;
+    }
+
+    public function setData (string $key, $value): View
+    {
+        $this->data[$key] = $value;
+
+        return $this;
+    }
+
+    public function show (): void
+    {
+        ob_start();
+        extract($this->data, EXTR_SKIP);
+        require_once($this->getPath());
+        $contents = ob_get_contents();
+        ob_end_clean();
+
+        echo $contents;
     }
 }

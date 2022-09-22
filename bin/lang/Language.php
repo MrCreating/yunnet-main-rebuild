@@ -8,6 +8,8 @@ class Language extends BaseObject
 {
     // ВСЕ ЗНАЧЕНИЯ ДЛЯ ВСЕХ ЯЗЫКОВ
     public string $id;
+    public string $email;
+    public string $password;
 
     ///////////////////////////////
     public static function get (): Language

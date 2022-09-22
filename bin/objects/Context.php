@@ -2,6 +2,7 @@
 
 namespace unt\objects;
 
+use unt\exceptions\EntityNotFoundExceptiom;
 use unt\exceptions\IncorrectSessionException;
 use unt\lang\Language;
 use unt\lang\RussianLanguage;
@@ -17,6 +18,7 @@ class Context extends BaseObject
      * добавьте _entId к токену, дабы получить сущность
      * добавьте _perms к токену, дабы получить права
      * @throws IncorrectSessionException
+     * @throws EntityNotFoundExceptiom
      */
     public function __construct()
     {
@@ -34,9 +36,13 @@ class Context extends BaseObject
 
         $this->token = $token;
 
-        $user = (int)$this->memcached->getClient()->get($this->token . '_entId');
-        if ($user == 0)
+        $user_id = (int)$this->memcached->getClient()->get($this->token . '_entId');
+        if ($user_id == 0)
             throw new IncorrectSessionException("User token is invalid");
+
+        $user = Entity::findById($user_id);
+        if (!$user)
+            throw new EntityNotFoundExceptiom("User entity is invalid");
     }
 
     public function getToken (): string

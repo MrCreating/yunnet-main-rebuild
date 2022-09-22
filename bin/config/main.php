@@ -30,7 +30,7 @@ return [
             die(require_once __DIR__ . '/../../themes/index.php');
         }
 
-        $defaultRedirectUrl = UntEngine::get()->getConfig()->getProjectDomain(!((int) getenv('UNT_PRODUCTION')));
+        $defaultRedirectUrl = UntEngine::get()->getConfig()->getProjectDomain();
         header("Location: http://" . $defaultRedirectUrl . '/');
     }
 ];
