@@ -16,13 +16,11 @@ jobs:
       - name: Init project
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0,
+          ref:
+      - name:
       - name: Fetching differences
-        uses: technote-space/get-diff-action@v6
-        with:
-          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
-          PATTERNS: |
-            *.php|*.html|*.yml
+        run: echo ::set-env name=GIT_DIFF::$(git diff  --stat -- './')
       - name: Validating files
         run: |
           echo Listing files diff.
