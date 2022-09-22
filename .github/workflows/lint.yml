@@ -13,7 +13,9 @@ jobs:
     name: Project lint
     runs-on: self-hosted
     steps:
-      - name: Init project
-        uses: actions/checkout@v1
+      - name: Init job
+        run: echo ok.
+      #- name: Init project
+      #  uses: actions/checkout@v3
       #- name: Work PHP lint
       #  uses: michaelw90/PHP-Lint@master
