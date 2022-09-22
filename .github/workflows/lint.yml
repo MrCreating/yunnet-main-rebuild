@@ -23,7 +23,7 @@ jobs:
         with:
           CHECK_ONLY_COMMIT_WHEN_DRAFT: true
           PATTERNS: |
-            *.php|*.html|*.yml
+            *.php|*.html
       - name: Validating files
         run: |
           echo Listing files diff.
