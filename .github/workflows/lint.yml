@@ -14,17 +14,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Init project
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.ref }}
-      - name: Fetching differences
-        uses: technote-space/get-diff-action@v6
-        with:
-          CHECK_ONLY_COMMIT_WHEN_DRAFT: true
-          PATTERNS: |
-            *.php|*.html
-      - name: Validating files
-        run: |
-          echo Listing files diff.
-          echo ${{ env.GIT_DIFF }}
+        uses: actions/checkout@v1
+      - name: Work PHP lint
+        uses: michaelw90/PHP-Lint@master
