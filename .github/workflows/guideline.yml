@@ -19,12 +19,6 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
-      - name: Get diff in project
-        id: gitDiff
-        uses: technote-space/get-diff-action@v6
-
       - name: Fetching files list
-        if: env.GIT_DIFF
         run: |
-          echo $(pwd)
-          for file in $(echo $GIT_DIFF); do sudo php -l "$file"| tr -d \'; done
+          for file in $(git diff --name-only --diff-filter=ACMR HEAD~1 | grep -E "(.php$|.html$)"); do php -l $file; done
