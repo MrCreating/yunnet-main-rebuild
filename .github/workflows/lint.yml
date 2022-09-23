@@ -20,6 +20,5 @@ jobs:
           ref: ${{ github.ref }}
       - name: Get diff in project
         uses: technote-space/get-diff-action@v6
-        with:
-          PATTERNS: |
-            +(*.php|*.html|*.yml)
+      - name: Fetching files list
+        run: echo ${{ env.GET_DIFF }}
