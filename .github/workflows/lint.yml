@@ -18,7 +18,10 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
+
       - name: Get diff in project
         uses: technote-space/get-diff-action@v6
+
       - name: Fetching files list
-        run: echo ${{ env.GET_DIFF }}
+        if: ${{ env.GET_DIFF }}
+        run: echo Diff found! Success!
