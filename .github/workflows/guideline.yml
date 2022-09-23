@@ -26,4 +26,5 @@ jobs:
       - name: Fetching files list
         if: env.GIT_DIFF
         run: |
+          echo $(pwd)
           for file in $(echo $GIT_DIFF); do php -l "$file"| tr -d \'; done
