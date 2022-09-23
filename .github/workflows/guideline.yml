@@ -21,9 +21,6 @@ jobs:
 
       - name: Get diff in project
         uses: technote-space/get-diff-action@v6
-        with:
-          PATTERNS: |
-            +(*.php|*.html)
 
       - name: Fetching files list
         if: env.GIT_DIFF
