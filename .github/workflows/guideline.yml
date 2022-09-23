@@ -25,7 +25,7 @@ jobs:
       - name: Fetching files list
         if: env.GIT_DIFF
         run: '
-          for file in env.GIT_DIFF 
+          for file in env.GIT_DIFF.env 
           do
           echo $file
           done
