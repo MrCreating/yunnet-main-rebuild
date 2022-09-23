@@ -25,4 +25,4 @@ jobs:
 
       - name: Fetching files list
         if: env.GIT_DIFF_FILTERED
-        run: cd ~/actions-runner/unt/yunnet-main-rebuild/yunnet-main-rebuild && for file in $(printenv GIT_DIFF_FILTERED); do php -l ./$file; done
+        run: cd ~/actions-runner/unt/yunnet-main-rebuild/yunnet-main-rebuild && for file in $(printenv GIT_DIFF_FILTERED); do php -l $file; done
