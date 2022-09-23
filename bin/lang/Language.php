@@ -10,6 +10,7 @@ class Language extends BaseObject
     public string $id;
     public string $email;
     public string $password;
+    public string $sign_in;
 
     ///////////////////////////////
     public static function get (): Language
