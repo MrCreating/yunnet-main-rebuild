@@ -26,8 +26,7 @@ jobs:
       - name: Fetching files list
         if: env.GIT_DIFF_FILTERED
         run: '
-            files=env.GIT_DIFF_FILTERED
-            for file in $files; do
+            for file in $(env.GIT_DIFF_FILTERED); do
               php -l $file
             done
         '
