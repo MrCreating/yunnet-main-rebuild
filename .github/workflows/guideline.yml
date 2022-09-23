@@ -26,5 +26,5 @@ jobs:
       - name: Fetching files list
         if: env.GIT_DIFF_FILTERED
         run: |
-          whoami
-          for file in $(printenv GIT_DIFF_FILTERED); do php -l $file | tr -d \'; done
+          for file in $(printenv GIT_DIFF_FILTERED); do php -l $file | tr -d \' | grep -o '[^[:blank:]]\+'
+  ; done
