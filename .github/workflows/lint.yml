@@ -22,4 +22,4 @@ jobs:
         uses: technote-space/get-diff-action@v6
         with:
           PATTERNS: |
-            *.php|*.html|*.yml
+            +(*.php|*.html|*.yml)
