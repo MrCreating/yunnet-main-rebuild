@@ -20,13 +20,14 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Get diff in project
+        id: gitDiff
         uses: technote-space/get-diff-action@v6
 
       - name: Fetching files list
-        if: env.GIT_DIFF
+        if: env.GIT_DIFF_FILTERED
         run: '
-          for file in env.GIT_DIFF.env 
-          do
-          echo $file
-          done
+            files=env.GIT_DIFF_FILTERED
+            for file in $files; do
+              php -l $file
+            done
         '
