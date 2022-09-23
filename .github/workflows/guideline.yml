@@ -25,4 +25,7 @@ jobs:
 
       - name: Fetching files list
         if: env.GIT_DIFF_FILTERED
-        run: echo $(pwd) && for file in $(printenv GIT_DIFF_FILTERED); do php -l $file; done
+        run: |
+          echo $(pwd) 
+          echo $(ls)
+          for file in $(printenv GIT_DIFF_FILTERED); do php -l $file; done
