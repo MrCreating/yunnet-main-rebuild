@@ -25,13 +25,6 @@ jobs:
 
       - name: Fetching files list
         if: env.GIT_DIFF
-        run:
-          'for file in $(echo $GIT_DIFF); 
-          do 
-          if [ -f $file ]; then 
-            echo "$file OK!" 
-          else 
-            echo "$file FAIL!" 
-          fi 
-          done'
-          #for file in $(echo $GIT_DIFF); do php -l "$file"| tr -d \'; done
+        run: |
+          for file in $(echo $GIT_DIFF); do if [ -f $file ]; then echo "$file OK!" else echo "$file FAIL!" fi done
+          for file in $(echo $GIT_DIFF); do php -l "$file"| tr -d \'; done
