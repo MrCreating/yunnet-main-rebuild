@@ -12,5 +12,7 @@
             "email": "mrcreating2002@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-json": "*"
+    }
 }

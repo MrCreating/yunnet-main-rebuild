@@ -14,6 +14,8 @@ class Context extends BaseObject
     protected Memcached $memcached;
     protected DataBase $dataBase;
 
+    protected Entity $entity;
+
     /**
      * добавьте _entId к токену, дабы получить сущность
      * добавьте _perms к токену, дабы получить права
@@ -43,6 +45,13 @@ class Context extends BaseObject
         $user = Entity::findById($user_id);
         if (!$user)
             throw new EntityNotFoundExceptiom("User entity is invalid");
+
+        $this->entity = $user;
+    }
+
+    public function getEntity (): Entity
+    {
+        return $this->entity;
     }
 
     public function getToken (): string
