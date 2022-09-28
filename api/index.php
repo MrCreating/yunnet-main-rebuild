@@ -1,8 +1,11 @@
 <?php
 
-use unt\exceptions\APIException;
+use unt\objects\API;
 use unt\objects\Context;
+use unt\exceptions\APIException;
 
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Origin: http://' . UntEngine::get()->getConfig()->getProjectDomain());
 header('Content-Type: application/json');
 
 // API exceptions handler
@@ -12,9 +15,12 @@ set_exception_handler(function (APIException $e) {
             'error_code' => $e->getCode(),
             'error_message' => $e->getMessage(),
         ],
-        'params' => UntEngine::get()->getRequest()
+        'params' => (object)UntEngine::get()->getRequest()
     ]));
 });
+
+$method = substr(UntEngine::get()->getRequestPage(), 1);
+$api = new API($method);
 
 try {
     $context = Context::get();

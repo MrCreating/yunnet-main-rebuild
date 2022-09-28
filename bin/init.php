@@ -65,9 +65,11 @@ class UntEngine
             foreach ($request_content as $data)
             {
                 $item = explode('=', $data, 2);
+                if (empty($item[0])) continue;
+
                 $request[$item[0]] = $item[1];
             }
-            $this->requestData = $request;
+            $this->requestData = array_merge($request, $_POST);
 
             call_user_func($this->config->getMainRouter(), $domain);
         }

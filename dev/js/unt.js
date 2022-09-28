@@ -4,7 +4,7 @@ String.prototype.isEmpty = function () {let e = this.split("\n").join("");return
 const unt = {
     data: {
         domain: 'localhost',
-        mode: 'https://'
+        mode: 'http://'
     },
     modules: {},
     url: function (entrypoint = '') {
@@ -43,9 +43,8 @@ const unt = {
 
         let x = _xmlHttpGet();
 
-        x.withCredentials = config.xhrFields.withCredentials;
-        x.open(config.method, config.url, true);
-        x.setRequestHeader('HTTP_X_REQUESTED_WITH', 'XMLHttpRequest');
+        x.withCredentials = config.withCredentials;
+        x.open(config.method, config.url);
 
         if (config.success)
             x.onreadystatechange = function () {

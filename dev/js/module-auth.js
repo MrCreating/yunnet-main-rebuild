@@ -2,16 +2,14 @@ unt.modules.auth = {
     authAccount: function (login, password) {
         return new Promise(function (resolve, reject) {
             unt.request({
-                url: unt.url('api') + '?auth.get',
+                url: unt.url('api') + 'auth.get',
                 method: 'POST',
                 data: unt.form({
                     login: login,
                     password: password,
                     app_id: 1
                 }),
-                xhrFields: {
-                    withCredentials: true
-                },
+                withCredentials: true,
                 success: function (response) {
                     console.log(response);
                 },
