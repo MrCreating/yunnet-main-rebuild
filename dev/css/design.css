@@ -6420,8 +6420,8 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple, .mdl-s
     box-sizing: border-box;
     width: 300px;
     max-width: 100%;
-    margin: 0;
-    padding: 20px 0
+    margin-bottom: 12px;
+    padding: 0 0 8px 0;
 }
 
 .mdl-textfield .mdl-button {
@@ -6452,6 +6452,7 @@ fieldset[disabled] .mdl-switch .mdl-switch__ripple-container .mdl-ripple, .mdl-s
     border-bottom: 1px solid rgba(0, 0, 0, .12);
     display: block;
     font-size: 16px;
+    height: 32px;
     font-family: "Helvetica", "Arial", sans-serif;
     margin: 0;
     padding: 4px 0;
@@ -6498,11 +6499,11 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__input, .mdl-textfield.is-disab
     pointer-events: none;
     position: absolute;
     display: block;
-    top: 24px;
+    top: 10px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    text-align: left
+    text-align: left;
 }
 
 .mdl-textfield.is-dirty .mdl-textfield__label, .mdl-textfield.has-placeholder .mdl-textfield__label {
@@ -6525,7 +6526,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 .mdl-textfield--floating-label.is-focused .mdl-textfield__label, .mdl-textfield--floating-label.is-dirty .mdl-textfield__label, .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
     color: rgb(33, 150, 243);
     font-size: 12px;
-    top: 4px;
+    top: -16px;
     visibility: visible
 }
 
@@ -6540,7 +6541,7 @@ fieldset[disabled] .mdl-textfield .mdl-textfield__label, .mdl-textfield.is-disab
 
 .mdl-textfield__label:after {
     background-color: rgb(33, 150, 243);
-    bottom: 20px;
+    bottom: 8px;
     content: '';
     height: 2px;
     left: 45%;

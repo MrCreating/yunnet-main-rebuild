@@ -15,15 +15,37 @@ body {
 }
 
 .auth-card {
-    width: 440px;
+    min-width: 0;
+    width: auto;
+    max-width: 50rem;
+}
+
+.text-default-margin {
+    margin: 15px;
+}
+
+.big-button {
+    min-height: 52px;
+    min-width: 102px;
+}
+
+.one-line-block {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 .margin-default-container {
-    padding: 15px;
+    padding: 20px;
 }
 
 .margin-auth-container {
-    padding: 64px;
+    padding: 32px;
 }
 
 .full-width {
@@ -32,6 +54,11 @@ body {
 
 .center {
     text-align: center;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
 }
 
 .full-container {

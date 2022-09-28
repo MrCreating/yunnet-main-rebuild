@@ -22,6 +22,8 @@ try {
         $view = new View(__DIR__ . '/views/main.php');
     } catch (Exception $e) {
         $view = new View(__DIR__ . '/views/auth.php');
+
+        $head->addScript('http://dev.'.$domain.'/js/module-auth.js');
     }
 
     $head->addView($view);
