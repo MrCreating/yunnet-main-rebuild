@@ -22,8 +22,16 @@ body {
     padding: 15px;
 }
 
+.margin-auth-container {
+    padding: 64px;
+}
+
 .full-width {
     width: 100%;
+}
+
+.center {
+    text-align: center;
 }
 
 .full-container {
@@ -36,4 +44,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.circle {
+    border-radius: 64px;
 }

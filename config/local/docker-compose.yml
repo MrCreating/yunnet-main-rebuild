@@ -73,3 +73,14 @@ services:
             - $PWD/../../:/home/unt
         env_file:
             - $PWD/configs.env
+    node:
+        restart: unless-stopped
+        hostname: yunnet.ru
+        tty: true
+        build:
+            dockerfile: $PWD/docker/node
+            context: $PWD/docker/context/node
+        volumes:
+            - $PWD/../../:/home/unt
+        env_file:
+            - $PWD/configs.env
