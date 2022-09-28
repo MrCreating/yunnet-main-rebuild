@@ -22,6 +22,7 @@ services:
         command: bash /home/unt/config/local/scripts/nginx.sh
     php:
         restart: unless-stopped
+        stdin_open: true
         hostname: yunnet.ru
         tty: true
         build:
@@ -61,3 +62,14 @@ services:
             - $PWD/configs.env
         ports:
             - "25:25"
+    rabbitmq:
+        restart: unless-stopped
+        hostname: lp.yunnet.ru
+        tty: true
+        build:
+            dockerfile: $PWD/docker/rabbitmq
+            context: $PWD/docker/context/rabbitmq
+        volumes:
+            - $PWD/../../:/home/unt
+        env_file:
+            - $PWD/configs.env
