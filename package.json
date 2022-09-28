@@ -1,0 +1,26 @@
+{
+  "name": "unt",
+  "version": "1.0.0",
+  "description": "Корневой каталог проекта социальной сети",
+  "main": "cli.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrCreating/yunnet-main-rebuild.git"
+  },
+  "keywords": [
+    "yunnet",
+    "unt"
+  ],
+  "author": "MrCreating",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrCreating/yunnet-main-rebuild/issues"
+  },
+  "homepage": "https://github.com/MrCreating/yunnet-main-rebuild#readme"
+}
