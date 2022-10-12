@@ -10,10 +10,12 @@ abstract class Entity extends BaseObject
 
     protected string $type;
 
-    public function __construct()
+    public function __construct(int $id)
     {
         parent::__construct();
         $this->protect();
+
+        $this->id = $id;
     }
 
     public function getId(): int

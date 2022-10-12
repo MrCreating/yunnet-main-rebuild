@@ -11,13 +11,7 @@ header('Content-Type: application/json');
 
 // API exceptions handler
 set_exception_handler(function (APIException $e) {
-    die(json_encode([
-        'error' => [
-            'error_code' => $e->getCode(),
-            'error_message' => $e->getMessage(),
-        ],
-        'params' => (object)UntEngine::get()->getRequest()
-    ]));
+    die(json_encode($e->toArray()));
 });
 
 $method = substr(UntEngine::get()->getRequestPage(), 1);

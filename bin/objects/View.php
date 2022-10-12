@@ -36,14 +36,18 @@ class View extends BaseObject
         return $this;
     }
 
-    public function show (): void
+    public function render (): string
     {
         ob_start();
         extract($this->data, EXTR_SKIP);
         require_once($this->getPath());
         $contents = ob_get_contents();
         ob_end_clean();
+        return $contents;
+    }
 
-        echo $contents;
+    public function show (): void
+    {
+        echo $this->render();
     }
 }

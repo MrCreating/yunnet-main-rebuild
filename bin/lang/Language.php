@@ -13,6 +13,8 @@ class Language extends BaseObject
     public string $login;
     public string $welcome;
     public string $login_invitation;
+    public string $email_welcome;
+    public string $email_code;
 
     ///////////////////////////////
 

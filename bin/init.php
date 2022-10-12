@@ -20,7 +20,7 @@ class UntEngine
     /**
      * @throws Exception
      */
-    public function __construct ()
+    public function __construct()
     {
         spl_autoload_register(function ($name) {
             $parts = array_slice(explode('\\', $name), 1);
@@ -30,16 +30,37 @@ class UntEngine
     }
 
     //////////////////////////////////////////
-    public function getRequest (): array
+    public function getRequest(): array
     {
         return $this->requestData;
     }
 
-    public function getRequestPage (): string
+    public function getRequestPage(): string
     {
         return $this->requestPage;
     }
     ///////////////////////////////////////////
+
+    ///////////////////////////////////////////
+    public function isEmptyString($string): bool
+    {
+        $test = implode('', explode(PHP_EOL, $string));
+        if ($test == '') {
+            return true;
+        }
+        $test = implode('', explode('\n', $string));
+        if ($test == '') {
+            return true;
+        }
+
+        $test = implode('', explode(' ', $string));
+        if ($test == '') {
+            return true;
+        }
+
+        return false;
+    }
+    /////////////////////////////////////////////
 
     /**
      * @throws InvalidConfigException

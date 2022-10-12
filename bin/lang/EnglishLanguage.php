@@ -10,4 +10,6 @@ class EnglishLanguage extends Language
     public string $login = 'Log in';
     public string $welcome = 'Welcome!';
     public string $login_invitation = 'Login or register to start using all the features of the site!';
+    public string $email_welcome = 'Welcome to yunNet.';
+    public string $email_code = 'your registration code is';
 }

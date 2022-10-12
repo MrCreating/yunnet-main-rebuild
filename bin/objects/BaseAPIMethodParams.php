@@ -50,9 +50,10 @@ class BaseAPIMethodParams extends BaseObject
             if (!isset($value) && $required)
                 throw new APIException('Some parameters was missing or invalid: ' . $param_name . ' is required', -5);
 
-            if (
-                ($type == self::PARAM_JSON && !($value = json_decode($value))) ||
-                ($type == self::PARAM_INT && !ctype_digit($value))
+            if (isset($value) && (
+                    ($type == self::PARAM_JSON && !($value = json_decode($value))) ||
+                    ($type == self::PARAM_INT && !ctype_digit($value))
+                )
             ) throw new APIException('Some parameters was invalid type: ' . $param_name . ' is invalid data type', -6);
 
             $result[$param_name] = ($type == self::PARAM_INT) ? ((int) $value) : $value;

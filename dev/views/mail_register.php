@@ -1,0 +1,1 @@
+<b><?php echo $first_name; ?></b>, <?php echo \unt\lang\Language::get()->email_code . ': '; ?><b><?php echo $code; ?></b>
